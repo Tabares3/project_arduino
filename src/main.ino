@@ -13,7 +13,7 @@ String voice;
 bool estado = LOW;
 
 void setup() {
-  lcd.begin(16, 2);
+  config();
   pinMode(led, OUTPUT);
   pinMode(entrada, INPUT);
   digitalWrite(led, LOW);
@@ -60,15 +60,17 @@ void loop() {
 
   // Actualizar el estado del LCD
   if (estado == HIGH) {
-    lcd.setCursor(0, 0);
-    lcd.clear();
-    lcd.setCursor(0, 0);
-    lcd.print("LED ON");
-  } else if (estado == LOW) {
-    lcd.setCursor(0, 0);
-    lcd.print("LED OFF");
+    printLED_ON();
+  } else if(estado == LOW) {
+    printLED_OFF();
   } else {
-    lcd.setCursor(0, 0);
-    lcd.print("ESTADO DEL LED");
+    printLED_STATE();
   }
 }
+
+    
+
+
+
+
+  
